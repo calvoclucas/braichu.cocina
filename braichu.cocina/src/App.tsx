@@ -93,18 +93,20 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-[100dvh] w-full flex justify-center bg-[#0d0c0b] text-stone-100 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-amber-600 selection:text-white">
+    <div className="relative min-h-dvh w-full flex justify-center bg-[#0d0c0b] text-stone-100 font-['Plus_Jakarta_Sans',sans-serif] antialiased selection:bg-amber-600 selection:text-white">
+      {/* Fondo fotográfico */}
       <div
-        className="fixed inset-0 z-0 bg-cover bg-center brightness-[0.7] contrast-[1.05]"
+        className="fixed inset-0 z-0 bg-cover bg-center brightness-75 contrast-105"
         style={{ backgroundImage: `url('/fondo.jpg')` }}
       />
       {/* Overlay oscuro y desenfoque suave para contraste óptimo */}
-      <div className="fixed inset-0 z-0 bg-black/82 backdrop-blur-[2px] pointer-events-none" />
+      <div className="fixed inset-0 z-0 bg-black/80 backdrop-blur-xs pointer-events-none" />
+
       {/* Pantalla central tipo Linktree / Landing Mobile */}
-      <main className="relative z-10 w-full max-w-[420px] min-h-[100dvh] flex flex-col justify-between px-5 py-10 sm:py-12">
+      <main className="relative z-10 w-full max-w-105 min-h-dvh flex flex-col justify-between px-5 py-10 sm:py-12">
         {/* Cabecera / Identidad */}
         <header className="flex flex-col items-center text-center">
-          <div className="w-28 h-28 rounded-full p-[3px] bg-gradient-to-b from-amber-500/40 via-stone-700/50 to-stone-900 shadow-2xl mb-4 transition-transform hover:scale-105 duration-300">
+          <div className="w-28 h-28 rounded-full p-0.75 bg-linear-to-b from-amber-500/40 via-stone-700/50 to-stone-900 shadow-2xl mb-4 transition-transform hover:scale-105 duration-300">
             <div className="w-full h-full rounded-full bg-[#181614] overflow-hidden flex items-center justify-center border border-amber-500/20 shadow-inner">
               {!logoError ? (
                 <img
@@ -125,11 +127,11 @@ export default function App() {
             braichu.cocina
           </h1>
 
-          <p className="text-xs sm:text-sm text-amber-400 font-semibold tracking-[0.22em] uppercase mt-1.5">
+          <p className="text-xs sm:text-sm text-amber-400 font-semibold tracking-widest uppercase mt-1.5">
             Braichu & Nicki
           </p>
 
-          <p className="text-sm sm:text-base text-stone-200/90 mt-3 font-normal max-w-[320px] leading-relaxed">
+          <p className="text-sm sm:text-base text-stone-200/90 mt-3 font-normal max-w-80 leading-relaxed">
             Empanadas caseras de autor, masa propia y horneado artesanal al
             momento.
           </p>
@@ -146,10 +148,10 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveModal("historia")}
-            className="w-full p-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/10 hover:border-amber-500/30 backdrop-blur-md transition-all duration-150 flex items-center justify-between text-left cursor-pointer group active:scale-[0.99]"
+            className="w-full p-4 rounded-2xl bg-white/5 hover:bg-white/9 border border-white/10 hover:border-amber-500/30 backdrop-blur-md transition-all duration-150 flex items-center justify-between text-left cursor-pointer group active:scale-[0.99]"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white/[0.07] border border-white/10 text-stone-300 flex items-center justify-center group-hover:text-amber-400 group-hover:scale-105 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-white/7 border border-white/10 text-stone-300 flex items-center justify-center group-hover:text-amber-400 group-hover:scale-105 transition-all">
                 <BookOpen className="w-5 h-5 stroke-[1.8]" />
               </div>
               <div>
@@ -168,7 +170,7 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveModal("precios")}
-            className="w-full p-4 rounded-2xl bg-amber-500/[0.08] hover:bg-amber-500/[0.14] border border-amber-500/35 hover:border-amber-500/60 backdrop-blur-md transition-all duration-150 flex items-center justify-between text-left cursor-pointer group active:scale-[0.99]"
+            className="w-full p-4 rounded-2xl bg-amber-500/8 hover:bg-amber-500/14 border border-amber-500/35 hover:border-amber-500/60 backdrop-blur-md transition-all duration-150 flex items-center justify-between text-left cursor-pointer group active:scale-[0.99]"
           >
             <div className="flex items-center gap-4">
               <div className="w-12 h-12 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center border border-amber-500/30 group-hover:scale-105 transition-all">
@@ -195,10 +197,10 @@ export default function App() {
           <button
             type="button"
             onClick={() => setActiveModal("mayoristas")}
-            className="w-full p-4 rounded-2xl bg-white/[0.05] hover:bg-white/[0.09] border border-white/10 hover:border-amber-500/30 backdrop-blur-md transition-all duration-150 flex items-center justify-between text-left cursor-pointer group active:scale-[0.99]"
+            className="w-full p-4 rounded-2xl bg-white/5 hover:bg-white/9 border border-white/10 hover:border-amber-500/30 backdrop-blur-md transition-all duration-150 flex items-center justify-between text-left cursor-pointer group active:scale-[0.99]"
           >
             <div className="flex items-center gap-4">
-              <div className="w-12 h-12 rounded-xl bg-white/[0.07] border border-white/10 text-stone-300 flex items-center justify-center group-hover:text-amber-400 group-hover:scale-105 transition-all">
+              <div className="w-12 h-12 rounded-xl bg-white/7 border border-white/10 text-stone-300 flex items-center justify-center group-hover:text-amber-400 group-hover:scale-105 transition-all">
                 <PackageOpen className="w-5 h-5 stroke-[1.8]" />
               </div>
               <div>
@@ -222,18 +224,18 @@ export default function App() {
         </footer>
       </main>
 
-      {/* Modales Responsive (Bottom Sheet en mobile / Pop-up centrado en tablet o escritorio) */}
+      {/* Modales Responsive con márgenes libres en mobile para verse más compactos */}
       {activeModal && (
         <div
-          className="fixed inset-0 z-50 bg-black/85 backdrop-blur-sm flex items-end sm:items-center justify-center p-0 sm:p-4 animate-in fade-in duration-150"
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-150"
           onClick={closeModal}
         >
           <div
-            className="bg-[#161514] border border-white/10 w-full sm:max-w-[440px] rounded-t-[28px] sm:rounded-2xl p-5 sm:p-6 relative shadow-2xl max-h-[85dvh] flex flex-col"
+            className="bg-[#161514] border border-white/12 w-full max-w-sm sm:max-w-110 rounded-3xl p-5 sm:p-6 relative shadow-2xl max-h-[78dvh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Barra táctil mobile */}
-            <div className="w-10 h-1 bg-white/20 rounded-full mx-auto mb-3 shrink-0 sm:hidden" />
+            {/* Barra estética superior */}
+            <div className="w-10 h-1 bg-white/20 rounded-full mx-auto mb-3 shrink-0" />
 
             {/* Botón cerrar */}
             <button
@@ -258,7 +260,7 @@ export default function App() {
                 </div>
 
                 <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-3">
-                  <div className="w-full h-44 rounded-xl overflow-hidden border border-white/10 shrink-0">
+                  <div className="w-full h-40 rounded-2xl overflow-hidden border border-white/10 shrink-0">
                     <img
                       src="https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&w=700&q=80"
                       alt="Cocina y empanadas"
@@ -291,9 +293,9 @@ export default function App() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-semibold py-3.5 px-4 rounded-xl text-sm tracking-wide transition shadow-lg shadow-emerald-500/10 cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-semibold py-3 px-4 rounded-xl text-sm tracking-wide transition shadow-lg shadow-emerald-500/10 cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5 fill-white" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>Contactar por WhatsApp</span>
                   </a>
                 </div>
@@ -319,12 +321,12 @@ export default function App() {
                   {EMPANADAS_MENU.map((item) => (
                     <div
                       key={item.id}
-                      className="p-3 bg-white/[0.03] rounded-xl border border-white/5 flex gap-3.5 items-center"
+                      className="p-2.5 bg-white/3 rounded-2xl border border-white/5 flex gap-3 items-center"
                     >
                       <img
                         src={item.image}
                         alt={item.name}
-                        className="w-16 h-16 rounded-xl object-cover shrink-0 border border-white/10"
+                        className="w-15 h-15 rounded-xl object-cover shrink-0 border border-white/10"
                       />
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center justify-between gap-2">
@@ -350,9 +352,9 @@ export default function App() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-semibold py-3.5 px-4 rounded-xl text-sm tracking-wide transition shadow-lg shadow-emerald-500/10 cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-semibold py-3 px-4 rounded-xl text-sm tracking-wide transition shadow-lg shadow-emerald-500/10 cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5 fill-white" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>Hacer pedido por WhatsApp</span>
                   </a>
                 </div>
@@ -372,7 +374,7 @@ export default function App() {
                 </div>
 
                 <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-3">
-                  <div className="p-4 bg-white/[0.03] border border-white/10 rounded-xl text-sm text-stone-300 leading-relaxed font-normal">
+                  <div className="p-3.5 bg-white/3 border border-white/10 rounded-2xl text-xs sm:text-sm text-stone-300 leading-relaxed font-normal">
                     Servicio pensado para{" "}
                     <strong className="font-semibold text-white">
                       rotiserías, locales gastronómicos, bares, revendedores y
@@ -382,7 +384,7 @@ export default function App() {
                     comercial atractivo.
                   </div>
 
-                  <div className="space-y-2.5 text-sm text-stone-300">
+                  <div className="space-y-2.5 text-xs sm:text-sm text-stone-300">
                     <div className="flex items-center gap-2.5">
                       <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
                       <span>Listas horneadas o congeladas crudas.</span>
@@ -405,9 +407,9 @@ export default function App() {
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-semibold py-3.5 px-4 rounded-xl text-sm tracking-wide transition shadow-lg shadow-emerald-500/10 cursor-pointer"
+                    className="w-full flex items-center justify-center gap-2 bg-[#25D366] hover:bg-[#20ba59] active:scale-[0.98] text-white font-semibold py-3 px-4 rounded-xl text-sm tracking-wide transition shadow-lg shadow-emerald-500/10 cursor-pointer"
                   >
-                    <WhatsAppIcon className="w-5 h-5 fill-white" />
+                    <WhatsAppIcon className="w-4 h-4 fill-white" />
                     <span>Solicitar lista mayorista</span>
                   </a>
                 </div>
