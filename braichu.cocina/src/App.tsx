@@ -6,6 +6,7 @@ import {
   ChevronRight,
   X,
   MapPin,
+  CheckCircle2,
 } from "lucide-react";
 
 const WHATSAPP_NUMBER = "5493415857565";
@@ -15,51 +16,17 @@ type ModalType = "historia" | "precios" | "mayoristas" | null;
 interface EmpanadaItem {
   id: string;
   name: string;
-  description: string;
-  price: string;
   badge?: string;
-  image: string;
 }
 
-const EMPANADAS_MENU: EmpanadaItem[] = [
-  {
-    id: "1",
-    name: "Carne Cortada a Cuchillo",
-    description:
-      "Carne seleccionada al fuego, verdeo fresco, especias y huevo duro.",
-    price: "$1.800",
-    badge: "Clásica",
-    image:
-      "https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "2",
-    name: "Pollo al Disco & Verdeo",
-    description:
-      "Pollo desmenuzado al disco con reducción de puerro y toque ahumado.",
-    price: "$1.700",
-    image:
-      "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "3",
-    name: "Jamón & Cuatro Quesos",
-    description:
-      "Mozzarella fundida, provolone, queso azul suave y jamón seleccionado.",
-    price: "$1.750",
-    image:
-      "https://images.unsplash.com/photo-1608039829572-78524f79c4c7?auto=format&fit=crop&w=600&q=80",
-  },
-  {
-    id: "4",
-    name: "Docena Especial Variada",
-    description:
-      "Caja x12 unidades a elección. Masa casera con repulgue tradicional a mano.",
-    price: "$19.500",
-    badge: "Promo",
-    image:
-      "https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&w=600&q=80",
-  },
+const MENU_SABORES: EmpanadaItem[] = [
+  { id: "1", name: "Carne salada" },
+  { id: "2", name: "Cheeseburger", badge: "Especial" },
+  { id: "3", name: "Carne desmenuzada al vino tinto", badge: "Gourmet" },
+  { id: "4", name: "Pollo a la crema y verdeo" },
+  { id: "5", name: "Jamón y queso" },
+  { id: "6", name: "Caprese" },
+  { id: "7", name: "Cebolla y queso" },
 ];
 
 function createWhatsAppLink(message: string): string {
@@ -99,12 +66,12 @@ export default function App() {
         className="fixed inset-0 z-0 bg-cover bg-center brightness-75 contrast-105"
         style={{ backgroundImage: `url('/fondo.jpg')` }}
       />
-      {/* Overlay oscuro y desenfoque suave para contraste óptimo */}
+      {/* Overlay oscuro */}
       <div className="fixed inset-0 z-0 bg-black/80 backdrop-blur-xs pointer-events-none" />
 
       {/* Pantalla central tipo Linktree / Landing Mobile */}
       <main className="relative z-10 w-full max-w-105 min-h-dvh flex flex-col justify-between px-5 py-10 sm:py-12">
-        {/* Cabecera / Identidad */}
+        {/* Cabecera */}
         <header className="flex flex-col items-center text-center">
           <div className="w-28 h-28 rounded-full p-0.75 bg-linear-to-b from-amber-500/40 via-stone-700/50 to-stone-900 shadow-2xl mb-4 transition-transform hover:scale-105 duration-300">
             <div className="w-full h-full rounded-full bg-[#181614] overflow-hidden flex items-center justify-center border border-amber-500/20 shadow-inner">
@@ -124,16 +91,16 @@ export default function App() {
           </div>
 
           <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white font-['Playfair_Display',serif] drop-shadow-md">
-            braichu.cocina
+            braichu cocina
           </h1>
 
           <p className="text-xs sm:text-sm text-amber-400 font-semibold tracking-widest uppercase mt-1.5">
-            Braichu & Nicki
+            Empanadas 100% Artesanales
           </p>
 
           <p className="text-sm sm:text-base text-stone-200/90 mt-3 font-normal max-w-80 leading-relaxed">
-            Empanadas caseras de autor, masa propia y horneado artesanal al
-            momento.
+            Volver a la comida real. Elaboradas desde cero y cocinadas a pedido
+            para garantizar máxima frescura.
           </p>
 
           <div className="flex items-center gap-1.5 text-xs text-stone-400 font-medium mt-2">
@@ -159,7 +126,7 @@ export default function App() {
                   Nuestra Historia
                 </h2>
                 <p className="text-xs text-stone-400 mt-0.5">
-                  El origen de nuestra cocina familiar
+                  El origen y compromiso de nuestra cocina
                 </p>
               </div>
             </div>
@@ -179,14 +146,14 @@ export default function App() {
               <div>
                 <div className="flex items-center gap-2">
                   <h2 className="text-base font-bold text-white tracking-wide">
-                    Carta & Pedidos
+                    Carta de Pedidos
                   </h2>
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-2.5 py-0.5 rounded-full bg-emerald-500/25 text-emerald-300 border border-emerald-500/30">
-                    Abierto
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded-full bg-emerald-500/25 text-emerald-300 border border-emerald-500/30">
+                    A pedido
                   </span>
                 </div>
                 <p className="text-xs text-amber-200/80 mt-0.5">
-                  Variedades clásicas, especiales y promos
+                  Variedades caseras y precios por docena
                 </p>
               </div>
             </div>
@@ -208,7 +175,7 @@ export default function App() {
                   Canal Mayorista
                 </h2>
                 <p className="text-xs text-stone-400 mt-0.5">
-                  Para comercios, eventos y reventa
+                  Selladas al vacío para comercios y reventa
                 </p>
               </div>
             </div>
@@ -219,22 +186,22 @@ export default function App() {
         {/* Footer */}
         <footer className="text-center pt-2">
           <p className="text-xs text-stone-400 font-normal tracking-wide">
-            Cocina artesanal · Rosario y Funes
+            Braichu Cocina · Rosario y Funes
           </p>
         </footer>
       </main>
 
-      {/* Modales Responsive con márgenes libres en mobile para verse más compactos */}
+      {/* Modales Responsive */}
       {activeModal && (
         <div
           className="fixed inset-0 z-50 bg-black/80 backdrop-blur-xs flex items-center justify-center p-4 sm:p-6 animate-in fade-in duration-150"
           onClick={closeModal}
         >
           <div
-            className="bg-[#161514] border border-white/12 w-full max-w-sm sm:max-w-110 rounded-3xl p-5 sm:p-6 relative shadow-2xl max-h-[78dvh] flex flex-col"
+            className="bg-[#161514] border border-white/12 w-full max-w-sm sm:max-w-110 rounded-3xl p-5 sm:p-6 relative shadow-2xl max-h-[92dvh] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Barra estética superior */}
+            {/* Barra superior */}
             <div className="w-10 h-1 bg-white/20 rounded-full mx-auto mb-3 shrink-0" />
 
             {/* Botón cerrar */}
@@ -247,41 +214,44 @@ export default function App() {
               <X className="w-4 h-4" />
             </button>
 
-            {/* ================= MODAL HISTORIA ================= */}
+            {/* ================= MODAL 1: HISTORIA ================= */}
             {activeModal === "historia" && (
               <>
-                <div className="shrink-0 pr-8 mb-3">
+                <div className="shrink-0 pr-8 mb-2">
                   <p className="text-[11px] font-semibold tracking-widest uppercase text-amber-500">
                     Nosotros
                   </p>
                   <h3 className="text-xl font-bold text-white font-['Playfair_Display',serif] mt-0.5">
-                    Historia de Braichu
+                    Nuestra Historia
                   </h3>
                 </div>
 
-                <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-3">
-                  <div className="w-full h-40 rounded-2xl overflow-hidden border border-white/10 shrink-0">
+                {/* Contenedor sin scrollbar visible */}
+                <div className="flex-1 overflow-y-auto min-h-0 space-y-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  <div className="w-full aspect-square rounded-2xl overflow-hidden border border-white/10 shrink-0 shadow-lg">
                     <img
-                      src="https://images.unsplash.com/photo-1628294895950-9805252327bc?auto=format&fit=crop&w=700&q=80"
-                      alt="Cocina y empanadas"
+                      src="/historia.jpeg"
+                      alt="Braichu y Nicki"
                       className="w-full h-full object-cover"
                     />
                   </div>
-                  <div className="space-y-3 text-sm text-stone-300 leading-relaxed font-normal">
+                  <div className="space-y-2 text-xs sm:text-sm text-stone-300 leading-relaxed font-normal">
                     <p>
-                      Somos{" "}
-                      <strong className="font-semibold text-white">
-                        Braichu & Nicki
+                      Braichu nació de un matrimonio joven con un objetivo
+                      claro:{" "}
+                      <strong className="font-semibold text-amber-300">
+                        volver a la comida real.
                       </strong>
-                      . Nuestro proyecto comenzó como una pasión familiar por
-                      rescatar el sabor de la empanada casera tradicional: masa
-                      estirada a mano, rellenos abundantes y horneado justo.
                     </p>
                     <p>
-                      Cuidamos cada ingrediente para garantizar que cada pedido
-                      que llegue a tu mesa en Rosario o Funes tenga la misma
-                      calidad y calidez con la que cocinamos para nuestra propia
-                      familia.
+                      Nos especializamos en empanadas 100% artesanales,
+                      elaboradas desde cero y cocinadas a pedido para garantizar
+                      máxima frescura.
+                    </p>
+                    <p>
+                      Sin procesos industriales ni producción masiva: solo
+                      ingredientes seleccionados, rellenos bien trabajados y la
+                      dedicación con la que cocinamos en casa.
                     </p>
                   </div>
                 </div>
@@ -289,7 +259,7 @@ export default function App() {
                 <div className="shrink-0 pt-3 mt-2 border-t border-white/5">
                   <a
                     href={createWhatsAppLink(
-                      "¡Hola Braichu & Nicki! Leí su historia y me gustaría hacerles una consulta.",
+                      "¡Hola Braichu! Estuve leyendo su historia y me gustaría hacerles una consulta.",
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -302,53 +272,86 @@ export default function App() {
               </>
             )}
 
-            {/* ================= MODAL PRECIOS ================= */}
+            {/* ================= MODAL 2: CARTA DE PEDIDOS ================= */}
             {activeModal === "precios" && (
               <>
                 <div className="shrink-0 pr-8 mb-2">
                   <p className="text-[11px] font-semibold tracking-widest uppercase text-amber-500">
-                    Menú
+                    Carta de Pedidos
                   </p>
                   <h3 className="text-xl font-bold text-white font-['Playfair_Display',serif] mt-0.5">
-                    Carta & Sabores
+                    Menú & Precios
                   </h3>
-                  <p className="text-xs text-stone-400 mt-0.5">
-                    Elaboradas en el día. Hacé tu pedido directo a cocina:
-                  </p>
                 </div>
 
-                <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-2.5 my-2">
-                  {EMPANADAS_MENU.map((item) => (
-                    <div
-                      key={item.id}
-                      className="p-2.5 bg-white/3 rounded-2xl border border-white/5 flex gap-3 items-center"
-                    >
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="w-15 h-15 rounded-xl object-cover shrink-0 border border-white/10"
-                      />
-                      <div className="flex-1 min-w-0">
-                        <div className="flex items-center justify-between gap-2">
-                          <h4 className="text-sm font-semibold text-white truncate">
-                            {item.name}
-                          </h4>
-                          <span className="text-sm font-bold text-amber-400 shrink-0">
-                            {item.price}
-                          </span>
-                        </div>
-                        <p className="text-xs text-stone-400 mt-0.5 line-clamp-2 leading-relaxed">
-                          {item.description}
-                        </p>
+                <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-3 my-1 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  {/* Tarjeta de Lista de Precios */}
+                  <div className="p-3 bg-linear-to-br from-amber-500/15 via-amber-500/5 to-transparent rounded-2xl border border-amber-500/30">
+                    <p className="text-[11px] font-bold uppercase tracking-wider text-amber-300 mb-2">
+                      Precios
+                    </p>
+                    <div className="grid grid-cols-3 gap-2 text-center">
+                      <div className="bg-black/30 rounded-xl py-2 px-1 border border-white/5">
+                        <span className="block text-[11px] text-stone-400">
+                          Docena
+                        </span>
+                        <span className="text-sm sm:text-base font-extrabold text-white">
+                          $20.000
+                        </span>
+                      </div>
+                      <div className="bg-black/30 rounded-xl py-2 px-1 border border-white/5">
+                        <span className="block text-[11px] text-stone-400">
+                          1/2 Docena
+                        </span>
+                        <span className="text-sm sm:text-base font-extrabold text-white">
+                          $12.000
+                        </span>
+                      </div>
+                      <div className="bg-black/30 rounded-xl py-2 px-1 border border-white/5">
+                        <span className="block text-[11px] text-stone-400">
+                          Unidad
+                        </span>
+                        <span className="text-sm sm:text-base font-extrabold text-white">
+                          $3.000
+                        </span>
                       </div>
                     </div>
-                  ))}
+                  </div>
+
+                  {/* Lista de Sabores */}
+                  <div className="space-y-1.5 pt-1">
+                    <p className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider px-1">
+                      Variedades artesanales
+                    </p>
+                    {MENU_SABORES.map((item) => (
+                      <div
+                        key={item.id}
+                        className="py-2.5 px-3 bg-white/3 rounded-xl border border-white/5 flex items-center justify-between"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 shrink-0" />
+                          <span className="text-sm font-medium text-stone-100">
+                            {item.name}
+                          </span>
+                        </div>
+                        {item.badge && (
+                          <span className="text-[10px] font-semibold tracking-wide px-2 py-0.5 rounded-md bg-amber-500/20 text-amber-300 border border-amber-500/30">
+                            {item.badge}
+                          </span>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+
+                  <p className="text-[11px] text-stone-400 text-center italic pt-1">
+                    * Cocinadas a pedido para garantizar máxima frescura.
+                  </p>
                 </div>
 
                 <div className="shrink-0 pt-3 border-t border-white/5">
                   <a
                     href={createWhatsAppLink(
-                      "¡Hola Braichu! Me gustaría hacer un pedido de empanadas.",
+                      "¡Hola Braichu! Quiero hacer un pedido de empanadas:\n",
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -361,7 +364,7 @@ export default function App() {
               </>
             )}
 
-            {/* ================= MODAL MAYORISTAS ================= */}
+            {/* ================= MODAL 3: CANAL MAYORISTA ================= */}
             {activeModal === "mayoristas" && (
               <>
                 <div className="shrink-0 pr-8 mb-3">
@@ -369,31 +372,38 @@ export default function App() {
                     Comercial
                   </p>
                   <h3 className="text-xl font-bold text-white font-['Playfair_Display',serif] mt-0.5">
-                    Precios Mayoristas
+                    Canal Mayorista
                   </h3>
                 </div>
 
-                <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-3">
+                <div className="flex-1 overflow-y-auto min-h-0 pr-1 space-y-3 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                   <div className="p-3.5 bg-white/3 border border-white/10 rounded-2xl text-xs sm:text-sm text-stone-300 leading-relaxed font-normal">
                     Servicio pensado para{" "}
                     <strong className="font-semibold text-white">
                       rotiserías, locales gastronómicos, bares, revendedores y
                       organizadores de eventos
                     </strong>{" "}
-                    que buscan incorporar un producto artesanal con margen
+                    que buscan incorporar empanadas artesanales con margen
                     comercial atractivo.
                   </div>
 
-                  <div className="space-y-2.5 text-xs sm:text-sm text-stone-300">
-                    <div className="flex items-center gap-2.5">
+                  <div className="space-y-2.5 text-xs sm:text-sm text-stone-300 pt-1">
+                    <div className="flex items-center gap-2.5 p-2 rounded-xl bg-amber-500/10 border border-amber-500/30">
+                      <CheckCircle2 className="w-4 h-4 text-amber-400 shrink-0" />
+                      <span className="font-bold tracking-wide text-amber-200">
+                        SELLADAS AL VACÍO
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2.5 px-1">
                       <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
                       <span>Listas horneadas o congeladas crudas.</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2.5 px-1">
                       <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
                       <span>Escala con bonificaciones por volumen.</span>
                     </div>
-                    <div className="flex items-center gap-2.5">
+                    <div className="flex items-center gap-2.5 px-1">
                       <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0" />
                       <span>Entregas coordinadas en Rosario y Funes.</span>
                     </div>
@@ -403,7 +413,7 @@ export default function App() {
                 <div className="shrink-0 pt-3 mt-2 border-t border-white/5">
                   <a
                     href={createWhatsAppLink(
-                      "¡Hola Braichu! Quisiera recibir la lista de precios mayorista para comercios/eventos.",
+                      "¡Hola Braichu! Quisiera recibir la lista de precios mayorista (selladas al vacío) para comercios/eventos.",
                     )}
                     target="_blank"
                     rel="noopener noreferrer"
